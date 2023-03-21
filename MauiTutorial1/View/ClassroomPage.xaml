@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiTutorial1.View.ClassroomPage"
+             Title="ClassroomPage">
+    <Grid RowDefinitions="100,Auto,*"
+          ColumnDefinitions=".75*, .25*" Padding="40">
+
+        <Image Grid.ColumnSpan="2"
+               Source="school_icon.png"
+               BackgroundColor="#FAD338"
+               />
+        <Frame
+            Padding="20,0,0,0"
+            Grid.Row="1"
+            HeightRequest="40"
+            CornerRadius="20"
+            BorderColor="Purple"
+            >
+            <Entry  
+                         Placeholder="Class room name"
+                         PlaceholderColor="Purple"
+                         FontFamily="OpenSansSemibold"
+                         TextColor="Purple"
+ReturnType="Done"
+                Keyboard="Plain"
+                         />
+        </Frame>
+        <Button 
+            Margin="10"
+            Grid.Row="1"
+            CornerRadius="100"
+                Grid.Column="1"
+                Text="Add" />
+        <Frame Grid.Row="2" Grid.ColumnSpan="2"
+               CornerRadius="20"
+            BorderColor="Purple"
+               >
+            <CollectionView>
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Math-101</x:String>
+                        <x:String>Math-202</x:String>
+                        <x:String>Math-303</x:String>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Delete" BackgroundColor="Red"></SwipeItem>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Grid Padding="0,5">
+                                <Frame 
+                                   BackgroundColor="White"
+                                IsClippedToBounds="True"
+                                BorderColor="Purple" 
+                                   Padding="5,5,5,5">
+                                    <Label Text="{Binding .}"
+                                       FontAttributes="Bold"
+                                        FontFamily="OpenSansSemibold"
+                                       TextColor="Purple"
+                                       FontSize="14"/>
+                                </Frame>
+                            </Grid>
+                        </SwipeView>
+                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Frame>
+    </Grid>
+
+</ContentPage>
